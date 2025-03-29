@@ -12,6 +12,10 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 1rem;
+
+  @media (max-width: 480px) {
+    padding: 0 1rem;
+  }
 `;
 
 const StyledLabel = styled.label`
@@ -30,6 +34,11 @@ const StyledInput = styled.input`
   &:focus {
     border-color: #0077cc;
     outline: none;
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+    font-size: 1.1rem;
   }
 `;
 

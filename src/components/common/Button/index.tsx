@@ -24,6 +24,13 @@ const StyledButton = styled.button`
     background-color: #ccc;
     cursor: not-allowed;
   }
+
+  // Responsivo para telas menores (ex: celular)
+  @media (max-width: 480px) {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    font-size: 1.1rem;
+  }
 `;
 
 const Button: React.FC<ButtonProps> = ({ type = "button", children }) => {

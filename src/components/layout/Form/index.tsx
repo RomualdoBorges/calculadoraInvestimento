@@ -3,6 +3,28 @@ import { calcularValorFuturo } from "../../../utils/vfFinance";
 import Input from "../../common/Input";
 import Button from "../../common/Button";
 import Select from "../../common/Select";
+import styled from "styled-components";
+
+const FormWrapper = styled.form`
+  display: grid;
+  gap: 12px;
+`;
+
+const Resultado = styled.p`
+  font-size: 2rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  text-align: center;
+  background-color: green;
+  border-radius: 6px;
+  padding: 1rem;
+  color: white;
+
+  @media (max-width: 480px) {
+    font-size: 1.5rem;
+    padding: 0.75rem;
+  }
+`;
 
 const Form: React.FC = () => {
   const [valorPresente, setValorPresente] = React.useState<number>();
@@ -38,7 +60,7 @@ const Form: React.FC = () => {
 
   return (
     <>
-      <form style={{ display: "grid", gap: "12px" }} onSubmit={onSubmit}>
+      <FormWrapper onSubmit={onSubmit}>
         <Input
           id="valor_presente"
           label="Valor Presente (R$)"
@@ -81,24 +103,9 @@ const Form: React.FC = () => {
         />
 
         <Button type="submit">Calcular</Button>
-      </form>
+      </FormWrapper>
 
-      {valorFuturo !== "" && (
-        <p
-          style={{
-            fontSize: "2rem",
-            fontWeight: 600,
-            marginTop: "2rem",
-            textAlign: "center",
-            backgroundColor: "green",
-            borderRadius: "6px",
-            padding: "1rem",
-            color: "white",
-          }}
-        >
-          {valorFuturo}
-        </p>
-      )}
+      {valorFuturo !== "" && <Resultado>{valorFuturo}</Resultado>}
     </>
   );
 };
